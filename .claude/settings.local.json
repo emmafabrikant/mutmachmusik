@@ -13,7 +13,18 @@
       "Bash(pkill -f \"astro dev\")",
       "Bash(git init *)",
       "Bash(git remote *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git rm *)",
+      "Bash(git branch *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(gh auth *)",
+      "Bash(ssh -T git@github.com)",
+      "Read(//Users/emmafabrikant/.ssh/**)",
+      "Bash(ssh-keyscan github.com)",
+      "Skill(update-config)",
+      "Skill(update-config:*)",
+      "Bash(bash -c 'export PATH=\"/opt/homebrew/bin:$PATH\" && git add -A && git diff --cached --quiet || git commit -m \"Update: $\\(git diff --cached --name-only | head -3 | tr '\\\\''\\\\n'\\\\'' '\\\\'','\\\\'' | sed '\\\\''s/,$//'\\\\''\\)\" && git push')"
     ]
   }
 }
