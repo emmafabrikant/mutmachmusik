@@ -1,0 +1,22 @@
+---
+import { siteConfig } from '@/config/site';
+import TestimonialCard from '@/components/ui/TestimonialCard.astro';
+---
+
+<section id="stimmen" class="py-20 md:py-28 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+    <div class="text-center mb-14">
+      <h2 class="section-heading">Was andere sagen</h2>
+      <p class="section-subheading max-w-md mx-auto">
+        Stimmen von Erzieherinnen, Lehrerinnen und Eltern.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {siteConfig.testimonials.map(t => (
+        <TestimonialCard quote={t.quote} author={t.author} />
+      ))}
+    </div>
+  </div>
+</section>

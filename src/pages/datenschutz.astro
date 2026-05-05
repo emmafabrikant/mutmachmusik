@@ -1,0 +1,142 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header     from '@/components/Header.astro';
+import Footer     from '@/components/Footer.astro';
+import { siteConfig } from '@/config/site';
+---
+
+<BaseLayout
+  title={`Datenschutzerklärung – ${siteConfig.name}`}
+  description="Datenschutzerklärung gemäß DSGVO"
+>
+  <Header />
+
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-16 md:py-24">
+    <h1 class="font-display text-4xl font-bold text-gray-900 mb-10">Datenschutzerklärung</h1>
+
+    <div class="space-y-10 text-gray-700 text-sm leading-relaxed">
+
+      <!-- 1. Verantwortlicher -->
+      <section>
+        <h2 class="font-display text-xl font-bold text-gray-900 mb-3">1. Verantwortlicher</h2>
+        <p>
+          Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br /><br />
+          {siteConfig.impressum.name}<br />
+          {siteConfig.impressum.address}<br />
+          {siteConfig.impressum.city}<br />
+          E-Mail: <a href={`mailto:${siteConfig.impressum.email}`} class="text-brand-pink hover:underline">{siteConfig.impressum.email}</a>
+        </p>
+      </section>
+
+      <!-- 2. Allgemeines -->
+      <section>
+        <h2 class="font-display text-xl font-bold text-gray-900 mb-3">2. Allgemeines zur Datenverarbeitung</h2>
+        <p>
+          Wir nehmen den Schutz eurer persönlichen Daten sehr ernst. Wir behandeln eure personenbezogenen
+          Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser
+          Datenschutzerklärung. Die Nutzung unserer Website ist in der Regel ohne Angabe personenbezogener
+          Daten möglich.
+        </p>
+      </section>
+
+      <!-- 3. Hosting -->
+      <section>
+        <h2 class="font-display text-xl font-bold text-gray-900 mb-3">3. Hosting</h2>
+        <p>
+          Diese Website wird bei einem externen Dienstleister (Hosting-Provider) gehostet. Beim Aufruf
+          der Website werden automatisch Verbindungsdaten (IP-Adresse, Datum und Uhrzeit des Zugriffs,
+          aufgerufene Seite) im Server-Log gespeichert. Diese Daten sind technisch notwendig und werden
+          nicht mit anderen Daten zusammengeführt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO
+          (berechtigtes Interesse am sicheren Betrieb der Website).
+        </p>
+      </section>
+
+      <!-- 4. Kontaktformular -->
+      <section>
+        <h2 class="font-display text-xl font-bold text-gray-900 mb-3">4. Kontaktformular</h2>
+        <p>
+          Wenn ihr uns über das Kontaktformular Anfragen zukommen lasst, werden eure Angaben aus dem
+          Anfrageformular inklusive der von euch angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage
+          bei uns gespeichert. Diese Daten geben wir nicht ohne eure Einwilligung weiter.
+        </p>
+        <p class="mt-3">
+          Das Formular wird über den Dienst <strong>Formspree</strong> (Formspree Inc., USA) verarbeitet.
+          Formspree ist EU-DSGVO-konform. Weitere Informationen:
+          <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener noreferrer" class="text-brand-pink hover:underline">
+            formspree.io/legal/privacy-policy
+          </a>.
+          Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) bzw. Art. 6 Abs. 1 lit. f DSGVO.
+        </p>
+      </section>
+
+      <!-- 5. YouTube -->
+      <section>
+        <h2 class="font-display text-xl font-bold text-gray-900 mb-3">5. YouTube-Videos</h2>
+        <p>
+          Auf unserer Website sind Videos der Plattform YouTube eingebunden. Anbieter ist die Google LLC,
+          1600 Amphitheatre Parkway, Mountain View, CA 94043, USA.
+        </p>
+        <p class="mt-3">
+          Wir nutzen YouTube im erweiterten Datenschutzmodus sowie eine „Voranzeige"-Lösung (Facade):
+          Videos werden erst geladen, wenn ihr aktiv auf den Abspiel-Button klickt. Erst durch diesen Klick
+          werden Daten (u.a. eure IP-Adresse) an YouTube/Google übertragen und Cookies gesetzt.
+        </p>
+        <p class="mt-3">
+          Wenn ihr ein Video abspielt, kann YouTube euer Nutzungsverhalten erfassen. Wir haben keinen
+          Einfluss auf die Datenverarbeitung durch Google/YouTube. Weitere Informationen findet ihr in der
+          Datenschutzerklärung von YouTube:
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="text-brand-pink hover:underline">
+            policies.google.com/privacy
+          </a>.
+          Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.
+        </p>
+      </section>
+
+      <!-- 6. Cookies -->
+      <section>
+        <h2 class="font-display text-xl font-bold text-gray-900 mb-3">6. Cookies</h2>
+        <p>
+          Diese Website setzt technisch notwendige Cookies, die für den Betrieb der Website erforderlich
+          sind (z.B. zur Speicherung eurer Cookie-Einstellung). Diese Cookies können nicht abgelehnt werden,
+          da sie für die Grundfunktionen der Website notwendig sind. Rechtsgrundlage ist Art. 6 Abs. 1 lit.
+          f DSGVO.
+        </p>
+      </section>
+
+      <!-- 7. Eure Rechte -->
+      <section>
+        <h2 class="font-display text-xl font-bold text-gray-900 mb-3">7. Eure Rechte</h2>
+        <p>Ihr habt gegenüber uns folgende Rechte hinsichtlich der euch betreffenden personenbezogenen Daten:</p>
+        <ul class="list-disc list-inside mt-3 space-y-1">
+          <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
+          <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
+          <li>Recht auf Löschung (Art. 17 DSGVO)</li>
+          <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+          <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
+          <li>Recht auf Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)</li>
+        </ul>
+        <p class="mt-3">
+          Ihr habt zudem das Recht, euch bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung eurer
+          personenbezogenen Daten durch uns zu beschweren.
+        </p>
+      </section>
+
+      <!-- 8. Änderungen -->
+      <section>
+        <h2 class="font-display text-xl font-bold text-gray-900 mb-3">8. Aktualität dieser Datenschutzerklärung</h2>
+        <p>
+          Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Mai 2025. Durch die
+          Weiterentwicklung unserer Website oder aufgrund geänderter gesetzlicher bzw. behördlicher Vorgaben
+          kann es notwendig werden, diese Datenschutzerklärung zu ändern.
+        </p>
+      </section>
+
+    </div>
+
+    <div class="mt-12">
+      <a href="/" class="text-brand-pink hover:underline font-semibold">← Zurück zur Startseite</a>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

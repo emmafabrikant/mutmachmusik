@@ -1,0 +1,108 @@
+---
+import { siteConfig } from '@/config/site';
+---
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href="/" aria-label={siteConfig.name} class="flex-shrink-0">
+      <img
+        src="/images/logo-mutmachmusik.png"
+        alt={siteConfig.name}
+        class="h-12 w-auto"
+        width="200"
+        height="48"
+      />
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex items-center gap-6 lg:gap-8" aria-label="Hauptnavigation">
+      {siteConfig.nav.map(item => (
+        <a
+          href={item.href}
+          class="font-display font-semibold text-gray-700 hover:text-brand-pink transition-colors duration-150 text-sm lg:text-base"
+        >
+          {item.label}
+        </a>
+      ))}
+      <a href="#kontakt" class="btn-primary text-sm lg:text-base py-2 px-5">
+        Kontakt
+      </a>
+    </nav>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="menu-toggle"
+      aria-label="Menü öffnen"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+      class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+    >
+      <svg id="icon-open"  class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+      <svg id="icon-close" class="w-6 h-6 text-gray-700 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile nav dropdown -->
+  <div
+    id="mobile-nav"
+    class="hidden md:hidden border-t border-gray-100 bg-white px-4 pb-4 pt-2"
+    role="navigation"
+    aria-label="Mobile Navigation"
+  >
+    <nav class="flex flex-col gap-1">
+      {siteConfig.nav.map(item => (
+        <a
+          href={item.href}
+          class="font-display font-semibold text-gray-700 hover:text-brand-pink px-2 py-2 rounded-lg hover:bg-gray-50 transition-colors"
+          data-mobile-link
+        >
+          {item.label}
+        </a>
+      ))}
+      <a
+        href="#kontakt"
+        class="btn-primary text-center mt-2"
+        data-mobile-link
+      >
+        Kontakt
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle   = document.getElementById('menu-toggle')!;
+  const nav      = document.getElementById('mobile-nav')!;
+  const iconOpen  = document.getElementById('icon-open')!;
+  const iconClose = document.getElementById('icon-close')!;
+
+  function closeMenu() {
+    nav.classList.add('hidden');
+    iconOpen.classList.remove('hidden');
+    iconClose.classList.add('hidden');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  toggle.addEventListener('click', () => {
+    const isOpen = !nav.classList.contains('hidden');
+    if (isOpen) {
+      closeMenu();
+    } else {
+      nav.classList.remove('hidden');
+      iconOpen.classList.add('hidden');
+      iconClose.classList.remove('hidden');
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  // Close when a nav link is clicked
+  document.querySelectorAll('[data-mobile-link]').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+</script>

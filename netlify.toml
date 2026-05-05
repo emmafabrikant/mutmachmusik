@@ -1,0 +1,12 @@
+[build]
+  command   = "npm run build"
+  publish   = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Redirect all 404s to the index (optional – useful if you add client-side routing later)
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 404

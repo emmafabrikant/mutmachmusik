@@ -1,0 +1,54 @@
+---
+// Cookie consent banner.
+// Currently only shown if analytics are enabled (see site.ts).
+// The banner stores the user's choice in localStorage.
+---
+
+<div
+  id="cookie-banner"
+  role="dialog"
+  aria-label="Cookie-Einstellungen"
+  class="fixed bottom-0 left-0 right-0 z-50 p-4 bg-gray-900 text-white shadow-2xl hidden"
+>
+  <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-start sm:items-center gap-4">
+    <p class="text-sm text-gray-300 flex-1">
+      Wir verwenden Cookies, um unsere Website zu verbessern. Weitere Informationen findet ihr in
+      unserer <a href="/datenschutz" class="underline hover:text-brand-yellow">Datenschutzerklärung</a>.
+    </p>
+    <div class="flex gap-3 flex-shrink-0">
+      <button
+        id="cookie-decline"
+        class="px-5 py-2 rounded-full border border-gray-500 text-sm font-semibold text-gray-300 hover:border-white hover:text-white transition-colors"
+      >
+        Ablehnen
+      </button>
+      <button
+        id="cookie-accept"
+        class="px-5 py-2 rounded-full bg-brand-yellow text-gray-900 text-sm font-bold hover:opacity-90 transition-opacity"
+      >
+        Akzeptieren
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const STORAGE_KEY = 'mmk_cookie_consent';
+  const banner = document.getElementById('cookie-banner')!;
+
+  if (!localStorage.getItem(STORAGE_KEY)) {
+    banner.classList.remove('hidden');
+  }
+
+  document.getElementById('cookie-accept')?.addEventListener('click', () => {
+    localStorage.setItem(STORAGE_KEY, 'accepted');
+    banner.classList.add('hidden');
+    // Dispatch event so analytics scripts can initialise
+    window.dispatchEvent(new CustomEvent('cookie-consent', { detail: { accepted: true } }));
+  });
+
+  document.getElementById('cookie-decline')?.addEventListener('click', () => {
+    localStorage.setItem(STORAGE_KEY, 'declined');
+    banner.classList.add('hidden');
+  });
+</script>

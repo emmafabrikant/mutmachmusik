@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "mutmachmusik-dev",
+      "runtimeExecutable": "/bin/sh",
+      "runtimeArgs": ["-c", "PATH=/opt/homebrew/bin:/usr/local/bin:$PATH npm run dev"],
+      "port": 4321
+    }
+  ]
+}

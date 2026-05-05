@@ -1,0 +1,72 @@
+---
+// GDPR-compliant YouTube embed using the "facade" pattern.
+// No YouTube cookies are set until the user clicks to play.
+// Uses youtube-nocookie.com to further reduce tracking.
+
+interface Props {
+  videoId: string;
+  title:   string;
+  class?:  string;
+}
+
+const { videoId, title, class: className = '' } = Astro.props;
+const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+---
+
+<div
+  class={`youtube-facade relative aspect-video rounded-2xl overflow-hidden bg-gray-900 cursor-pointer group ${className}`}
+  data-video-id={videoId}
+  data-title={title}
+  role="button"
+  tabindex="0"
+  aria-label={`Video abspielen: ${title}`}
+>
+  <!-- Thumbnail -->
+  <img
+    src={thumbnailUrl}
+    alt={title}
+    class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-70 transition-opacity duration-200"
+    loading="lazy"
+    width="1280"
+    height="720"
+  />
+
+  <!-- Play button -->
+  <div class="absolute inset-0 flex items-center justify-center">
+    <div class="w-16 h-16 bg-brand-pink rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-200">
+      <svg class="w-7 h-7 text-white ml-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- GDPR notice on hover -->
+  <div class="absolute bottom-0 left-0 right-0 bg-black/70 text-white text-xs p-3 text-center translate-y-full group-hover:translate-y-0 transition-transform duration-200">
+    Durch Klicken wird ein YouTube-Video geladen. YouTube (Google LLC) kann dabei Cookies setzen.
+    Weitere Infos in unserer <a href="/datenschutz" class="underline" onclick="event.stopPropagation()">Datenschutzerklärung</a>.
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.youtube-facade').forEach(facade => {
+    const activate = () => {
+      const videoId = facade.dataset.videoId!;
+      const title   = facade.dataset.title ?? 'YouTube Video';
+      const iframe  = document.createElement('iframe');
+      iframe.src              = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+      iframe.title            = title;
+      iframe.allow            = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.allowFullscreen  = true;
+      iframe.className        = 'absolute inset-0 w-full h-full rounded-2xl';
+      facade.replaceWith(iframe);
+    };
+
+    facade.addEventListener('click', activate);
+    facade.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        activate();
+      }
+    });
+  });
+</script>

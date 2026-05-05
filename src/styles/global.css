@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  body {
+    @apply text-gray-800 bg-white;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Fredoka', sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-block bg-brand-pink text-white font-display font-semibold px-8 py-3 rounded-full
+           hover:opacity-90 active:scale-95 transition-all duration-150 cursor-pointer;
+  }
+
+  .btn-secondary {
+    @apply inline-block border-2 border-brand-pink text-brand-pink font-display font-semibold px-8 py-3 rounded-full
+           hover:bg-brand-pink hover:text-white active:scale-95 transition-all duration-150 cursor-pointer;
+  }
+
+  .section-heading {
+    @apply font-display text-4xl md:text-5xl font-semibold text-gray-900 leading-tight;
+  }
+
+  .section-subheading {
+    @apply text-lg text-gray-500 mt-3 leading-relaxed;
+  }
+}
