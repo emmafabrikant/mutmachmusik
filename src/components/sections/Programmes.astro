@@ -6,13 +6,6 @@ import ProgramCard from '@/components/ui/ProgramCard.astro';
 <section id="programme" class="py-20 md:py-28 bg-gray-50">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
 
-    <div class="text-center mb-14">
-      <h2 class="section-heading">Unsere Programme</h2>
-      <p class="section-subheading max-w-xl mx-auto">
-        Zwei Welten voller Musik – passend für jedes Alter.
-      </p>
-    </div>
-
     <div class="grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
       {siteConfig.programmes.map(p => (
         <ProgramCard

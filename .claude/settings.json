@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "export PATH=\"/opt/homebrew/bin:$PATH\" && cd /Users/emmafabrikant/Documents/CODE/Mutmachmusik && git add -A && git diff --cached --quiet || (git commit -m \"Update: $(git diff --cached --name-only | head -3 | tr '\\n' ',' | sed 's/,$//') \" && git push) 2>/dev/null || true",
+            "statusMessage": "Committing and pushing to GitHub..."
+          }
+        ]
+      }
+    ]
+  }
+}

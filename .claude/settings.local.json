@@ -24,7 +24,8 @@
       "Bash(ssh-keyscan github.com)",
       "Skill(update-config)",
       "Skill(update-config:*)",
-      "Bash(bash -c 'export PATH=\"/opt/homebrew/bin:$PATH\" && git add -A && git diff --cached --quiet || git commit -m \"Update: $\\(git diff --cached --name-only | head -3 | tr '\\\\''\\\\n'\\\\'' '\\\\'','\\\\'' | sed '\\\\''s/,$//'\\\\''\\)\" && git push')"
+      "Bash(bash -c 'export PATH=\"/opt/homebrew/bin:$PATH\" && git add -A && git diff --cached --quiet || git commit -m \"Update: $\\(git diff --cached --name-only | head -3 | tr '\\\\''\\\\n'\\\\'' '\\\\'','\\\\'' | sed '\\\\''s/,$//'\\\\''\\)\" && git push')",
+      "Bash(xargs cat *)"
     ]
   }
 }
