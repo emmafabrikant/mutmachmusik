@@ -17,8 +17,8 @@ const emma = siteConfig.programmes[1];
           {siteConfig.tagline}
         </span>
 
-        <!-- Monkey programme card -->
-        <div class="mb-6">
+        <!-- Programme cards -->
+        <div class="mb-6 flex flex-col gap-6">
           <ProgramCard
             name={monkey.name}
             ageLabel={monkey.ageLabel}
@@ -29,6 +29,17 @@ const emma = siteConfig.programmes[1];
             ctaLabel={monkey.ctaLabel}
             ctaHref={monkey.ctaHref}
             accentColor={monkey.accentColor}
+          />
+          <ProgramCard
+            name={emma.name}
+            ageLabel={emma.ageLabel}
+            description={emma.description}
+            image={emma.image}
+            imageAlt={emma.imageAlt}
+            logo={emma.logo}
+            ctaLabel={emma.ctaLabel}
+            ctaHref={emma.ctaHref}
+            accentColor={emma.accentColor}
           />
         </div>
 
