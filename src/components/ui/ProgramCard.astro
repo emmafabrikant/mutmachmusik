@@ -2,38 +2,40 @@
 interface Props {
   name:         string;
   ageLabel:     string;
-  description:  string;
   image:        string;
   imageAlt:     string;
   logo:         string;
   ctaLabel:     string;
   ctaHref:      string;
   accentColor?: string;
+  ctaVariant?:  'primary' | 'secondary';
 }
 
 const {
   name,
   ageLabel,
-  description,
   image,
   imageAlt,
   logo,
   ctaLabel,
   ctaHref,
   accentColor = 'brand-pink',
+  ctaVariant = 'primary',
 } = Astro.props;
+
+const btnClass = ctaVariant === 'secondary' ? 'btn-secondary' : 'btn-primary';
 ---
 
 <article class="flex flex-col items-center text-center bg-white rounded-3xl shadow-md hover:shadow-xl transition-shadow duration-300 p-8 md:p-10">
   <!-- Circular photo frame -->
-  <div class={`w-44 h-44 rounded-full border-4 border-${accentColor} overflow-hidden mb-6 flex-shrink-0`}>
+  <div class={`w-56 h-56 rounded-full border-4 border-${accentColor} overflow-hidden mb-6 flex-shrink-0`}>
     <img
       src={image}
       alt={imageAlt}
       class="w-full h-full object-cover"
       loading="lazy"
-      width="176"
-      height="176"
+      width="224"
+      height="224"
     />
   </div>
 
@@ -41,17 +43,15 @@ const {
   <img
     src={logo}
     alt={name}
-    class="h-14 w-auto object-contain mb-3"
+    class="h-20 w-auto object-contain mb-3"
     loading="lazy"
-    width="160"
-    height="56"
+    width="200"
+    height="80"
   />
 
-  <p class={`font-display font-semibold text-${accentColor} mb-4`}>{ageLabel}</p>
+  <p class={`font-display font-semibold text-${accentColor} mb-6`}>{ageLabel}</p>
 
-  <p class="text-gray-500 leading-relaxed mb-8 flex-1">{description}</p>
-
-  <a href={ctaHref} class="btn-primary w-full sm:w-auto">
+  <a href={ctaHref} class={`${btnClass} w-full sm:w-auto`}>
     {ctaLabel}
   </a>
 </article>
