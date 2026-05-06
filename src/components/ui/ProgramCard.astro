@@ -24,32 +24,65 @@ const {
 } = Astro.props;
 
 const btnClass = ctaVariant === 'secondary' ? 'btn-secondary' : ctaVariant === 'green' ? 'btn-green' : 'btn-primary';
+
+// Unique ID for SVG path so multiple cards on the same page don't clash
+const pathId = `age-arc-${name.replace(/[^a-z0-9]/gi, '-').toLowerCase()}`;
 ---
 
 <article class="flex flex-col items-center text-center bg-white rounded-3xl shadow-md hover:shadow-xl transition-shadow duration-300 p-8 md:p-10">
-  <!-- Circular photo frame -->
-  <div class={`w-56 h-56 rounded-full border-4 border-${accentColor} overflow-hidden mb-6 flex-shrink-0`}>
-    <img
-      src={image}
-      alt={imageAlt}
-      class="w-full h-full object-cover"
-      loading="lazy"
-      width="224"
-      height="224"
-    />
+
+  <!-- Circular photo with curved age label -->
+  <!-- viewBox 224×224 matches the w-56 h-56 (224px) circle -->
+  <div class="relative w-56 h-56 mb-6 flex-shrink-0">
+
+    <!-- Photo circle -->
+    <div class={`w-full h-full rounded-full border-4 border-${accentColor} overflow-hidden`}>
+      <img
+        src={image}
+        alt={imageAlt}
+        class="w-full h-full object-cover"
+        loading="lazy"
+        width="224"
+        height="224"
+      />
+    </div>
+
+    <!-- Curved age text along the top inside edge of the circle -->
+    <svg
+      class="absolute inset-0 w-full h-full pointer-events-none"
+      viewBox="0 0 224 224"
+      aria-hidden="true"
+    >
+      <defs>
+        <!-- Top arc: from (18,112) through the top to (206,112), radius 94 -->
+        <path id={pathId} d="M 18,112 A 94,94 0 0,1 206,112" />
+      </defs>
+      <text
+        font-size="16"
+        font-weight="600"
+        font-family="Fredoka, sans-serif"
+        paint-order="stroke"
+        stroke="white"
+        stroke-width="4"
+        stroke-linejoin="round"
+        class={`fill-${accentColor}`}
+      >
+        <textPath href={`#${pathId}`} startOffset="50%" text-anchor="middle">
+          {ageLabel}
+        </textPath>
+      </text>
+    </svg>
   </div>
 
   <!-- Programme logo -->
   <img
     src={logo}
     alt={name}
-    class="h-20 w-auto object-contain mb-3"
+    class="h-20 w-auto object-contain mb-6"
     loading="lazy"
     width="200"
     height="80"
   />
-
-  <p class={`font-display font-semibold text-${accentColor} mb-6`}>{ageLabel}</p>
 
   <a href={ctaHref} class={`${btnClass} w-full sm:w-auto`}>
     {ctaLabel}
