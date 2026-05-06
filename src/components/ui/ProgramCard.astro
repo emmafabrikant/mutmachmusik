@@ -55,18 +55,19 @@ const pathId = `age-arc-${name.replace(/[^a-z0-9]/gi, '-').toLowerCase()}`;
   <!-- viewBox 224×36: same width as the circle, 36px tall for the curved text -->
   <!-- -mt-3 pulls it up to hug the circle edge; mb-4 gives space before the logo -->
   <svg
-    class={`w-56 flex-shrink-0 -mt-3 mb-4 pointer-events-none fill-${accentColor}`}
-    viewBox="0 0 224 36"
+    class="w-56 flex-shrink-0 -mt-3 mb-4 pointer-events-none overflow-visible"
+    viewBox="0 0 224 40"
     aria-hidden="true"
   >
     <defs>
-      <!-- Gentle upward arc (r=400) so text smiles below the circle -->
-      <path id={pathId} d="M 5,32 A 400,400 0 0,1 219,32" />
+      <!-- r=180: more pronounced smile curve around the bottom of the circle -->
+      <path id={pathId} d="M 5,36 A 180,180 0 0,1 219,36" />
     </defs>
     <text
       font-size="16"
       font-weight="600"
       font-family="Fredoka, sans-serif"
+      fill={fillColor}
       paint-order="stroke"
       stroke="white"
       stroke-width="3"
