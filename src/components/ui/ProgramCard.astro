@@ -25,6 +25,14 @@ const {
 
 const btnClass = ctaVariant === 'secondary' ? 'btn-secondary' : ctaVariant === 'green' ? 'btn-green' : 'btn-primary';
 
+// Map accentColor token → hex so SVG fill attribute works reliably
+const accentHex: Record<string, string> = {
+  'brand-yellow': '#FFCA28',
+  'brand-pink':   '#C8009C',
+  'brand-green':  '#00BF63',
+};
+const fillColor = accentHex[accentColor] ?? '#C8009C';
+
 // Unique SVG path ID per card
 const pathId = `age-arc-${name.replace(/[^a-z0-9]/gi, '-').toLowerCase()}`;
 ---
