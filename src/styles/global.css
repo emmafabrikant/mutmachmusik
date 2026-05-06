@@ -28,6 +28,11 @@
            hover:bg-brand-pink hover:text-white active:scale-95 transition-all duration-150 cursor-pointer;
   }
 
+  .btn-green {
+    @apply inline-block bg-brand-green text-white font-display font-semibold px-8 py-3 rounded-full
+           hover:opacity-90 active:scale-95 transition-all duration-150 cursor-pointer;
+  }
+
   .section-heading {
     @apply font-display text-4xl md:text-5xl font-semibold text-gray-900 leading-tight;
   }

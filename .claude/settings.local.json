@@ -25,7 +25,13 @@
       "Skill(update-config)",
       "Skill(update-config:*)",
       "Bash(bash -c 'export PATH=\"/opt/homebrew/bin:$PATH\" && git add -A && git diff --cached --quiet || git commit -m \"Update: $\\(git diff --cached --name-only | head -3 | tr '\\\\''\\\\n'\\\\'' '\\\\'','\\\\'' | sed '\\\\''s/,$//'\\\\''\\)\" && git push')",
-      "Bash(xargs cat *)"
+      "Bash(xargs cat *)",
+      "Bash(sips -g all /Users/emmafabrikant/Documents/CODE/Mutmachmusik/public/images/logo-monkey-und-ich.png)",
+      "Bash(sips --cropToHeightWidth 970 1920 --cropOffset 950 0 /Users/emmafabrikant/Documents/CODE/Mutmachmusik/public/images/logo-monkey-und-ich.png --out /Users/emmafabrikant/Documents/CODE/Mutmachmusik/public/images/logo-monkey-und-ich-text.png)",
+      "Bash(sips --cropToHeightWidth 1100 1100 --cropOffset 0 410 /Users/emmafabrikant/Documents/CODE/Mutmachmusik/public/images/logo-monkey-und-ich.png --out /Users/emmafabrikant/Documents/CODE/Mutmachmusik/public/images/monkey-icon.png)",
+      "Bash(sips -g all /Users/emmafabrikant/Documents/CODE/Mutmachmusik/public/images/logo-monkey-und-ich-text.png)",
+      "Bash(python3 -c \"from PIL import Image; print\\('pillow ok'\\)\")",
+      "Bash(pip3 install *)"
     ]
   }
 }
