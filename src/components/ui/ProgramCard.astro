@@ -23,7 +23,7 @@ const {
   ctaVariant = 'primary',
 } = Astro.props;
 
-const btnClass = ctaVariant === 'secondary' ? 'btn-secondary' : 'btn-primary';
+const btnClass = ctaVariant === 'secondary' ? 'btn-secondary' : ctaVariant === 'green' ? 'btn-green' : 'btn-primary';
 ---
 
 <article class="flex flex-col items-center text-center bg-white rounded-3xl shadow-md hover:shadow-xl transition-shadow duration-300 p-8 md:p-10">
