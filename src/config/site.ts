@@ -45,7 +45,7 @@ export const siteConfig = {
       description: 'Interaktive Musikerlebnisse für die Kleinsten – mit fröhlichen Liedern, Bewegung und dem frechen Affen Monkey.',
       image:       '/images/photo-monkey-und-ich.png',  // circular card photo
       imageAlt:    'Monkey und Ich – Kinderkonzert für 2–6 Jährige',
-      logo:        '/images/logo-monkey-und-ich.png',
+      logo:        '/images/monkey text cropped.png',
       ctaLabel:    'Mehr erfahren',
       ctaHref:     '#kontakt',
       accentColor: 'brand-yellow',
