@@ -42,7 +42,7 @@ export const siteConfig = {
       id:          'monkey-und-ich',
       name:        'Monkey und Ich',
       ageLabel:    'für 2–6 Jährige',
-      description: 'Interaktive Musikerlebnisse für die Kleinsten – mit fröhlichen Liedern, Bewegung und dem frechen Affen Monkey.',
+      description: 'Ein einsames Alien hat uns eine Freundschaftsbote geschickt! Wir bauen eine Musik-Rakete und flitzen ins Weltall. Auf dem Weg begegnen Monkey und die Kinder natürlich einigen Herausforderungen: Mal kriegt die Rakete eine Panne oder vielleicht verirren wir uns im Dschungel. Doch das ist kein Problem! Gemeinsam überwinden sie alles mit ihren "Musikkräften", denn bei Monkey\'s Musik-Abenteuern sind Kinder nicht nur Zuschauer*innen – sie sind die kreativen Köpfe, die unsere eigene Geschichte gestalten!\n\nEin interaktiver Musik-Workshop zum Mitmachen, Mitfreuen und Mitzaubern.',
       image:       '/images/photo-monkey-und-ich.png',  // circular card photo
       imageAlt:    'Monkey und Ich – Kinderkonzert für 2–6 Jährige',
       logo:        '/images/monkey text cropped.png',
